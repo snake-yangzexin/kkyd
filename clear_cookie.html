@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>无标题文档</title>
+<script type="text/javascript" src="/js/jq/jquery.js?v20160622"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160622"></script>
+<script type="text/javascript">
+var sCookidVisitor=decodeURI($.cookie('visitor'));
+var oLocalStorage = window.localStorage;
+if(sCookidVisitor&&sCookidVisitor.indexOf('=')>-1){
+	var sCookidVisitor=sCookidVisitor.split('=')[0];
+}
+
+function clearKkyd(){
+	$.cookie('KKYD_INFO','');
+}
+
+function clearCookie(){
+	$.cookie('KKYD_INFO','');
+	$.cookie('uid','');
+	$.cookie('contentJson','');
+	$.cookie('visitor','');
+	window.localStorage.clear();
+	$.cookie('channelCode','');
+	$.cookie('channel_code_color','');
+	$.cookie('user_color','');
+	$.cookie('fixed_iOS','');
+}
+
+
+function viewCookie(){
+
+	alert($.cookie('uid')+'uid');
+	alert($.cookie('fixed_iOS')+'fixed_iOS');
+	alert($.cookie('KKYD_INFO')+'KKYD_INFO');
+	alert($.cookie('contentJson')+'contentJson');
+	alert($.cookie('visitor')+'visitor');
+	alert($.cookie('channelCode')+'channelCode');
+	alert($.cookie('channel_code_color')+'channel_code_color');
+	alert($.cookie('user_color')+'user_color');
+	alert(window.localStorage.getItem('recentlyRead')+'localStorage');
+}
+
+function fLocalStorage(){
+
+	document.write(localStorage.getItem("visitor")+'visitor')
+}
+
+function clearLocalStorage(){
+	localStorage.clear();
+	document.write(localStorage.getItem("visitor")+'visitor')
+}
+document.write(localStorage.setItem("visitor", sCookidVisitor));
+if(oLocalStorage){
+	var sVisitor=decodeURI(localStorage.getItem('visitor'));
+	if(!sVisitor||sVisitor==''||sVisitor=='null'){
+		if(sCookidVisitor!='undefined'){
+			document.write(sCookidVisitor)
+			document.write(localStorage.setItem("visitor", sCookidVisitor));
+			document.write(localStorage.getItem("visitor")+'visitor');
+		}
+	}else if(sVisitor&&sVisitor!=sCookidVisitor){
+		$.cookie('visitor',sVisitor, { expires: 999999 });
+	}
+}
+
+
+try { 
+    localStorage.setItem("visitor", sCookidVisitor); 
+} catch (e) { 
+    alert("您处于无痕浏览，无法为您保存"); 
+}
+
+
+function isSecretBrowse(){
+    var _localStorage = window.localStorage;
+    if(!_localStorage){
+        return false;
+    }
+    var testKey = 'visitor';
+    try{
+        _localStorage.setItem(testKey, '1');
+        _localStorage.removeItem(testKey);
+        return false;
+    }catch (error){
+        return true;
+    }
+}
+
+
+
+</script>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body>
+<div style="display:none;" id="share_icon"><img src="/images/icons/icon5.png" /></div>
+
+<a href="javascript:;" onClick="clearCookie();">清除cookie</a><br>
+<br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="clearKkyd();">清除用户</a><br>
+<br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="viewCookie();">查看cookie</a><br>
+<br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="fLocalStorage();">localStorage</a><br>
+<br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="clearLocalStorage();">清除localStorage</a><br>
+<br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="window.location.reload();">刷新</a><br>
+</body>
+</html>

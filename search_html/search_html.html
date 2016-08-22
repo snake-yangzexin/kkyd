@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="css/reset.css?v20160731"/>
+<link rel="stylesheet" type="text/css" href="css/style.css?v20160731"/>
+<script type="text/javascript" src="js/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.search_input input').focus(function(){
+			var $oThis=$(this);
+			$oThis.parent().addClass('focus');
+		})
+		
+		
+		
+		
+		$(document).on('click','.conter_list_tab_box a',function(){
+			var oThis=$(this);
+			var nIndex=oThis.index();
+			var oUl=oThis.parents('.conter_list_tab_box').siblings('.conter_list_tab_main').find('ul');
+			oThis.addClass('hover').siblings('a').removeClass('hover');
+			oUl.eq(nIndex).fadeIn().siblings('.conter_list_tab_ul').hide();
+			
+			
+		//搜索
+		}).on('click','#search_form_but',function(){
+			var sVal=$.trim($('.search_input input').val());
+			if(sVal){
+				winLocalHref('/search_list.html?channelCode=K900025&keyword='+sVal);
+			}else{
+				sVal=$.trim($('.search_input input').attr('placeholder'));
+				winLocalHref('/search_list.html?channelCode=K900025&keyword='+sVal);
+			}
+		}).on('keyup','.search_input input',function(e){
+			var e=e||window.event;
+			if(e.keyCode==13){
+				var sVal=$.trim($('.search_input input').val());
+				if(sVal){
+					winLocalHref('/search_list.html?channelCode=K900025&keyword='+sVal);
+				}else{
+					sVal=$.trim($('.search_input input').attr('placeholder'));
+					winLocalHref('/search_list.html?channelCode=K900025&keyword='+sVal);
+				}
+			}
+		});
+	
+		
+		
+	})
+	
+
+//跳转链接  获取连接
+function winLocalHref(str){
+	if(str){
+		window.location.href=str;
+	}else{
+		return window.location.href;
+	}
+}
+</script>
+<title></title><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+<body>
+<div class="header">
+	<h1>精品免费小说</h1>
+</div>
+
+<div class="content_box">
+	<div class="search_box" style="padding:0 10px 10px;">
+    
+        <div class="head_search_height">
+            <div class="head_search_box">
+                <div class="search_input_box">
+                    <a href="javascript:;" class="search_but" id="search_form_but"></a>
+                    <div class="search_input"><input type="search" placeholder="盗墓笔记" /></div>
+                </div>
+            </div>
+        </div>
+
+       
+	   <div class="btns_list">
+	   	  	<div class="btn_list"><a href="http://m.kkyd.cn/search_classify_type.html?typeId=20200100&name=一夜迷情&channelCode=K900025">一夜迷情</a></div>
+	   	  	<div class="btn_list"><a href="http://m.kkyd.cn/search_classify_type.html?typeId=20100100&name=欲望都市&channelCode=K900025">欲望都市</a></div>
+	   	  	<div class="btn_list"><a href="http://m.kkyd.cn/search_classify_type.html?typeId=20200400&name=彩虹天空&channelCode=K900025">彩虹天空</a></div>
+	   	  	<div class="btn_list"><a href="http://m.kkyd.cn/search_classify_type.html?typeId=20100200&name=神游幻境&channelCode=K900025">神游幻境</a></div>
+	   	  	<div class="btn_list"><a href="http://m.kkyd.cn/search_classify_type.html?typeId=20200600&name=争宠献媚&channelCode=K900025">争宠献媚</a></div>            
+	   	  	<div class="btn_list"><a href="http://m.kkyd.cn/search_classify_type.html?typeId=20200300&name=蠢蠢欲动&channelCode=K900025">蠢蠢欲动</a></div>
+	   </div>
+    </div>
+    
+    <div class="text_img">
+    	<div class="top_img_box">
+    		<div class="b_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000007503&channelCode=K900025"><img src="img/11000007503_b.jpg"></a></div>
+    		<span class="text_intro">强爱嫩妻：老公，轻一点</span>
+    	</div>
+    	<ul class="text_img_list">
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005443&channelCode=K900025"><img src="img/11000005443.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005443&channelCode=K900025">一入职场就遭遇潜规则，美女院长夜夜要不停！</a></p>
+    		</li>
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000003116&channelCode=K900025"><img src="img/11000003116.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000003116&channelCode=K900025">激活体内藏经阁，将少林功夫与异界功法融合成神级绝学，从此疯狂逆袭！</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005489&channelCode=K900025"><img src="img/11000005489.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005489&channelCode=K900025">被渣男卖到山村，每晚都被一帅帅的男鬼压在床上，夜夜尽欢……</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000000743&channelCode=K900025"><img src="img/11000000743.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000000743&channelCode=K900025">我最近总做一个梦，躺在大床上，陌生的男人，狂狷的气息……</a></p>
+    		</li>
+            <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005601&channelCode=K900025"><img src="img/11000005601.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005601&channelCode=K900025">风流医生受美女青睐，只因他有个“大宝贝”……</a></p>
+    		</li>            
+    	</ul>
+    </div>
+
+    <div class="text_img">
+    	<div class="top_img_box">
+    		<div class="b_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000001976&channelCode=K900025"><img src="img/11000001976_b.jpg"></a></div>
+    		<span class="text_intro">哥是肉搏高手：美女总裁压身下</span>
+    	</div>
+    	<ul class="text_img_list">
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005757&channelCode=K900025"><img src="img/11000005757.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005757&channelCode=K900025">他砸下三亿，将她圈养在金屋里，日日折磨，夜夜疯狂……</a></p>
+    		</li>
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000001405&channelCode=K900025"><img src="img/11000001405.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000001405&channelCode=K900025">调戏调戏萧家小姐，勾搭勾搭豪门淑女，祸害万千！</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005508&channelCode=K900025"><img src="img/11000005508.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005508&channelCode=K900025">陌生男子半夜爬上床，一夜激情过后，以为是做梦，可怀孕了是什么鬼……</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005759&channelCode=K900025"><img src="img/11000005759.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005759&channelCode=K900025">我和他做有名无实的夫妻，半夜，一双大手伸进我的睡衣里……</a></p>
+    		</li>
+            <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005641&channelCode=K900025"><img src="img/11000005641.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005641&channelCode=K900025">离婚少妇空虚寂寞，与小鲜肉一夜疯狂难以自拔……</a></p>
+    		</li>            
+    	</ul>
+    </div>
+    
+     <div class="text_img">
+    	<div class="top_img_box">
+    		<div class="b_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000006316&channelCode=K900025"><img src="img/11000006316_b.jpg"></a></div>
+    		<span class="text_intro">集齐12张美女图：美女就归你</span>
+    	</div>
+    	<ul class="text_img_list">
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000001253&channelCode=K900025"><img src="img/11000001253.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000001253&channelCode=K900025">嫁入豪门后，丈夫竟然将我扒光了，强迫我和男佣在客厅里……</a></p>
+    		</li>
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005605&channelCode=K900025"><img src="img/11000005605.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005605&channelCode=K900025">铁血硬汉来袭，颤抖吧，小妞儿！</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000006346&channelCode=K900025"><img src="img/11000006346.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000006346&channelCode=K900025">我和美女姐姐欲火难忍一夜尽欢，父亲说我中邪了……</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000000111&channelCode=K900025"><img src="img/11000000111.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000000111&channelCode=K900025">为躲避负心前男友，我喝醉了酒，竟误爬上了陌生男人的床……</a></p>
+    		</li>
+            <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005327&channelCode=K900025"><img src="img/11000005327.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005327&channelCode=K900025">拥有透视异能，身处花丛，只为寻得大波美女……</a></p>
+    		</li>            
+    	</ul>
+    </div>
+    
+    
+     <div class="text_img">
+    	<div class="top_img_box">
+    		<div class="b_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000008200&channelCode=K900025"><img src="img/11000008200_b.jpg"></a></div>
+    		<span class="text_intro">激情如火：山洞之中上演野战</span>
+    	</div>
+    	<ul class="text_img_list">
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000001412&channelCode=K900025"><img src="img/11000001412.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000001412&channelCode=K900025">清纯校花被流氓学生调教，激情似火……</a></p>
+    		</li>
+    		<li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005192&channelCode=K900025"><img src="img/11000005192.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005192&channelCode=K900025">出差丢了房卡，渣男前任突然出现，将她抵上墙角，丢下自己老婆竟是要跟她……</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005906&channelCode=K900025"><img src="img/11000005906.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005906&channelCode=K900025">林枫的理想，就是将流氓这个职业，进行到底，将其发扬光大！</a></p>
+    		</li>
+                <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000005768&channelCode=K900025"><img src="img/11000005768.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000005768&channelCode=K900025">背着男友，我爬上了他的床，供他彻夜纵欢……</a></p>
+    		</li>
+            <li class="text_img_li">
+    			<div class="s_img"><a href="http://m.kkyd.cn/book_content.html?bookId=11000003816&channelCode=K900025"><img src="img/11000003816.png"></a></div>
+    			<p><a href="http://m.kkyd.cn/book_content.html?bookId=11000003816&channelCode=K900025">重生在女生澡堂，峰峦叠嶂，吓坏了热辣美女，也吓坏了我……</a></p>
+    		</li>            
+    	</ul>
+    </div>
+    
+               
+         
+
+</div>
+</body>
+</html>

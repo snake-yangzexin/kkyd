@@ -1,0 +1,275 @@
+@charset "utf-8";
+body,html{
+	width:100%;
+	background-color:#fff;
+}
+
+.login_box{
+	padding:30px 0;
+	overflow:hidden;
+	margin:0 auto;
+	width:280px;
+}
+
+.lgoin_but{
+	float:left;
+	overflow:hidden;
+	margin:10px 0;
+	width:33%;
+	text-align:center;
+}
+
+
+.lgoin_but a{
+	overflow:hidden;
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	border-radius:44px;
+}
+.lgoin_but a,
+.lgoin_but a img{
+	width:44px;
+}
+
+.lgoin_but a img{
+	display:block;
+}
+
+.lgoin_but_color_1{
+	background-color:#09a80c;
+}
+.lgoin_but_color_2{
+	background-color:#2a9be3;
+}
+.lgoin_but_color_3{
+	background-color:#c31515;
+}
+.lgoin_but_color_4{
+	background-color:#58b4ef;
+}
+.lgoin_but_color_5{
+	background-color:#1e90e8;
+}
+.lgoin_but_color_6{
+	background-color:#e8901e;
+}
+
+.lgoin_but h2{
+	display:block;
+	font-size:14px;
+	color:#333;
+	text-align:center;
+	line-height:20px;
+}
+
+
+
+
+.login_from_box{
+	position:absolute;
+	bottom:-300px;
+	left:0;
+	right:0;
+	z-index:100;
+	border-top:1px solid #d8d8d8;
+	background-color:#fff;
+	-webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+div.login_from_show{
+	bottom:0;
+}
+
+.login_from_tit{
+	padding:10px 10px 0;
+	border-top:8px solid #f6f6f6;
+	font-size:14px;
+	text-align:center;
+	color:#808080;
+	line-height:24px;
+}
+
+.login_but_box{
+	margin:20px 0 10px;
+	padding:0 10px;
+}
+.login_but{
+	display:block;
+	padding:8px 0;
+	background-color:#ff6fa2;
+	font-size:16px;
+	color:#fff;
+	text-align:center;
+	line-height:20px;
+	border-radius:6px;
+}
+
+
+.login_other_box{
+	height:30px;
+	padding:0 10px;
+}
+
+.login_checkbox{
+	overflow:hidden;
+	float:left;
+	white-space:nowrap;
+}
+
+.login_checked_box{
+	margin:2px 6px 0 0;
+	overflow:hidden;
+	float:left;
+	height:14px;
+	width:14px;
+	background:#d8d8d8 url(../images/icons/gou_icon_1.png) no-repeat center center;
+	background-size:14px 14px;
+}
+
+.login_checkbox .checked{
+	background-color:#ff6fa2;
+}
+
+.login_checkbox strong{
+	float:left;
+	font-size:14px;
+	color:#333;
+	font-weight:normal;
+	line-height:20px;
+}
+
+.login_other_a{
+	float:right;
+	height:20px;
+}
+
+.login_other_a a,
+.login_other_a span{
+	float:right;
+}
+
+.login_other_a a{
+	font-size:14px;
+	color:#808080;
+	line-height:20px;
+}
+
+.login_other_a span{
+	margin:4px 6px 0;
+	overflow:hidden;
+	height:12px;
+	width:1px;
+	background-color:#808080;
+}
+
+
+.footer_box{
+	min-height:54px;
+}
+/*
+.footer_info{
+	position:absolute;
+	left:0;
+	bottom:0;
+	right:0;
+	width:100%;
+	background-color:#dbdbdb;
+}
+*/
+
+
+
+.login_list_box{
+	padding:20px 0;
+}
+
+.login_tit_p{
+	margin-bottom:20px;
+	height:20px;
+	font-size:12px;
+	color:#e34f4f;
+	text-align:center;
+	line-height:20px;
+}
+
+.login_li_but{
+	display:block;
+	overflow:hidden;
+	margin: 0 36px 16px;
+	height:44px;
+	border-radius:3px;
+}
+
+.login_li_but_qq{
+	background-color:#2a9be3;
+}
+.login_li_but_sina{
+	background-color:#b92e2e;
+}
+.login_li_but_zhifubao{
+	background-color:#58b4ef;
+}
+.login_li_but_weixin{
+	background-color:#09a80c;
+}
+.login_li_but_other{
+	margin-top:36px;
+	background-color:#dba011;
+}
+
+.login_li_but span,
+.login_li_but{
+	display:block;
+	font-size:14px;
+	color:#fff;
+	text-align:left;
+	line-height:44px;
+}
+
+.login_li_but{
+	text-align:center;
+}
+
+.login_li_but span{
+	margin:0 auto;
+	padding:0 0 0 40px;
+	width:146px;
+	background-repeat:no-repeat;
+	background-position:0 center;
+	background-size:36px auto;
+	box-sizing:border-box;
+}
+
+
+
+.login_li_but_qq span{
+	background-image:url(../images/icons/qq.png);
+}
+.login_li_but_sina span{
+	background-image:url(../images/icons/sina.png);
+}
+.login_li_but_zhifubao span{
+	background-image:url(../images/icons/zfb.png);
+}
+.login_li_but_weixin span{
+	background-image:url(../images/icons/weixin.png);
+}
+
+
+.login_error_box{
+	margin:30px 35px 0;
+}
+
+.login_error_box{
+	font-size:12px;
+	color:#666;
+	line-height:20px;
+}
+
+
+
+
+

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.read_guide_ul li a').click(function(){
+			var $oThis = $(this);
+			$oThis.siblings('p').toggle(100);
+		})
+		
+	})
+</script>
+<style type="text/css">
+	/*read_guide_ul*/
+.read_guide_ul,
+.read_subscribe_ul{
+	padding:8px 10px;
+	overflow:hidden;
+	background-color:#fff;
+	border-bottom:1px solid #d8d8d8;
+}
+.read_guide_ul li,
+.read_subscribe_ul li{
+	overflow:hidden;
+}
+.read_guide_ul strong,
+.read_guide_ul li > a{
+	display:block;
+	overflow:hidden;
+	padding:16px 0;
+	background-color:#fff;
+	border-bottom:1px solid #d8d8d8;
+	font-size:14px;
+	font-weight:normal;
+	color:#333;
+	line-height:18px;
+}
+.read_guide_ul li:last-child  a{
+	border-bottom:none;
+}
+.read_guide_ul li:last-child strong,
+.read_subscribe_ul li:last-child{
+	border-bottom:0;
+}
+.read_guide_ul p{
+	display:none;
+	margin-top:-1px;
+	padding:8px 0;
+	background-color:#f6f6f6;
+	font-size:14px;
+	color:#808080;
+	line-height:18px;
+	text-indent: 2em;
+}
+
+.read_subscribe_ul li{
+	padding:6px 0;
+	border-bottom:1px solid #d8d8d8;
+}
+
+.subscribe_remove_but{
+	display:none;
+	overflow:hidden;
+	float:right;
+	padding:0 8px;
+	background-color:#dd4111;
+	font-size:14px;
+	color:#fff;
+	line-height:26px;
+	border-radius:4px;
+}
+
+.subscribe_book{
+	overflow:hidden;
+	margin-right:55px;
+	display:block;
+	font-size:16px;
+	color:#333;
+	line-height:26px;
+}
+
+
+.subscribe_edit_box{
+	overflow:hidden;
+	padding:10px;
+	background-color:#f6f6f6;
+}
+
+
+.subscribe_book_num{
+	float:left;
+	font-size:16px;
+	color:#808080;
+	line-height:20px;
+}
+
+
+.subscribe_edit_box a{
+	padding: 0 6px;
+    float: right;
+    font-size: 14px;
+    color: #ff6fa2;
+    border: 1px solid #ff6fa2;
+    border-radius: 3px;
+    line-height: 20px;
+}
+
+.subscribe_over,
+.read_guide_subscribe_show .subscribe_edit{
+	display:none;
+}
+
+.read_guide_subscribe_show .subscribe_over,
+.read_guide_subscribe_show .subscribe_remove_but{
+	display:block;
+}
+</style>
+<title></title>
+</head>
+<body>
+<div class="read_guide_box">
+	<ul class="read_guide_ul">
+    	<li>
+        	<a href="javascript:;">1、一键登录不成功怎么办？</a>
+            <p>如果出现一键登录不成功，检查网络是否有问题，如果网络正常，可以多试几次确保成功，或者联系客服qq：1329139338。</p>    
+    	</li>
+    	<li>
+        	<a href="javascript:;">2、阅读时，如何设置舒服的阅读环境？</a>
+            <p> 阅读过程中，点击屏幕中央即可唤起阅读菜单。顶部菜单：书签、客服、纠错、书籍详情。底部菜单：目录/书签、批量下载、进度跳转、调节系统亮度、阅读设置。中间为夜间模式。可对菜单进行选择适合自己的阅读环境。 </p>
+        </li>
+    	<li>
+        	<a href="javascript:;">3、限时免费的书过了活动时间，还可以看吗？</a>
+            <p> 限时免费小说下载后，在书架上不删除、不换手机使用和清除缓存，可免费阅读。如删除、更换手机或者升级软件，限免期间下载的限免书籍将无法免费阅读。另外，第三方安全软件清理软件的时候会自动清除，建议您设置取消清理本软件的文件。</p>
+		</li>
+    	<li>
+        	<a href="javascript:;">4、如何离线阅读？</a>
+          <p> 您可以在书籍详情页面点击【批量下载】按钮，提前将图书的全部章节或者部分章节下载下来，以便于在没有网络情况的时候阅读。</p>
+        </li>
+    	<li>
+        	<a href="javascript:;">5、如何充值看点，查询看点？</a>
+          <p>   在书城中【个人中心】-【充值】，选择充值方式和充值金额，点击金额即进行充值。同时可在【个人中心】-【充值记录】中查询到您的充值记录和消费记录。充值获得的看点没有有效期，未使用的看点会保存在您的账号中。</p>
+      </li>
+    	<li>
+        	<a href="javascript:;">6、充值看点后为什么没有及时到账？</a>
+          <p> 充值成功后，一般是及时自动到账，最迟24小时内会到账。如未到账，需要注意核对交易是否成功，可能出现充值不成功未扣费的情况。如有问题，可咨询客服电话400-118-0066.
+</p>
+      </li>
+    	<li>
+        	<a href="javascript:;">7、支付异常如何处理？</a>
+            <p> 一旦出现“支付异常”，可以重试几次，如果仍然失败，可能系统正在维护中、临时故障或者书籍暂时下架，请注意系统的通知消息和书架上“跑马灯”通知信息。</p>
+      </li>
+    	<li>
+        	<a href="javascript:;">8、下载失败如何处理？</a>
+            <p>一旦出现“下载失败”，可以重试几次，如果仍然失败，请检查网络情况，如果网络正常，请联系客服qq：1329139338。</p>
+      </li>
+      <li>
+      	<a href="javascript:;">9、如何定制频道？</a>
+      	<p>点击书城右侧上方“+”按钮，可以订阅和取消订阅不同类型的图书频道。</p>
+      </li>
+      <li>
+      	<a href="javascript:;">10、为什么要升级软件，如何升级？</a>
+      	<p>应用为了提供更丰富的功能与服务，会通过更新软件版本的方式来升级服务，如果你使用的版本较低，可能会出现登录不成功、支付总失败、书籍资源少、某些功能搬家了等等问题，为了提升您的体验，建议升级软件到最新版本后，在尝试阅读。
+              可通过菜单->关于我们->版本更新 来升级。如有问题，可咨询客服电话400-118-0066。 </p>
+      </li>
+      <li>
+      	<a href="javascript:;">11、如何反馈问题和提出建议？</a>
+      	<p> 点击书架左上角【菜单】->【意见反馈】或者书城中【个人中心】->【意见反馈】，编辑您要对我们提出的意见或者在使用时遇到的问题发送给我们，也可直接拨打客服电话：400-118-0066或者客服qq：1329139338与我们沟通
+</p>
+      </li>
+      <li>
+      	<a href="javascript:;">12、书籍临时下架后，如何继续阅读？</a>
+      	<p> 如果书籍读了一部分临时下架了，我们会和版权方积极协商，一旦书籍上架后会第一时间通知您。
+  </p>
+      </li>
+      <li>
+      	<a href="javascript:;">13、如何删除书架里的书籍？</a>
+      	<p>  点击书架左上角【菜单】->【管理书架】，可对书架的图书进行相应的操</p>
+      </li>
+  </ul>
+</div>	
+</body>
+</html>

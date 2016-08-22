@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html id="first_charge_vue">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/common.css"/>
+<script type="text/javascript" src="/js/jq/jquery.js"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<title>首充有礼</title>
+<style type="text/css">
+   html,body{
+   	height: 100%;
+	background:#ff5d78;
+   }
+	.other_money{
+		overflow:hidden;
+	}
+	.money_img {
+		margin:20px 0;
+		overflow: hidden;
+	}
+	.money_img img{
+		display: block;
+		width: 100%;
+	}
+	.ewm_money{
+		text-align: center;
+	}
+	.ewm_money img{
+		/*display: block;*/
+		margin:0 auto 8px;
+		display:block;
+		width:160px;
+	}
+	.money_tip{
+		color: #fff;
+		font-size: 16px;
+		font-family: "微软雅黑";
+	}
+	.money_table{
+		margin: 20px  15px;
+		color:#812132 ;
+		font-size: 14px;
+		font-family: "微软雅黑";
+		
+	}
+	.top_pu_but{
+		padding:8px 0;
+		display:block;
+		margin:60px 15px 40px;
+		height:28px;
+		background-color:#fcd44b;
+		font-size:16px;
+		color:#896c0a;
+		text-align:center;
+		line-height:28px;
+		border-radius:4px;
+	}
+
+	
+</style><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+<body>
+
+<template v-if="show">
+    <div class="header_tit" style="background: #333333;">
+        <a href="javascript:;" class="return_page"></a>
+        <a href="/" class="return_home">首页</a>
+        <h1 class="header_h1">首充有礼</h1>
+    </div>	
+    <div class="other_money">
+        <div class="money_img"><img src="images/img/first_money.png"></div>
+        
+        <a href="javascript:;" class="top_pu_but" @click="firstCharge" v-if="firstShow">去看看</a>
+        <div class="ewm_money" v-else>
+            <img src="images/img/kkewm_200.gif?123">
+            <div class="money_tip">长按免费关注</div>
+        </div>
+        <table class="money_table">
+            <tr>
+                <td class="money_table_title">适用人群：满足以下条件</td>
+            </tr>
+            <tr>
+                <td class="money_table_title">1.关注微信公众号"快看酱",点击"首充有礼"</td>
+            </tr>
+            <tr>
+                <td class="money_table_title">2.必须是未充值过的用户</td>
+            </tr>
+            <tr>
+                <td class="money_table_title">3.微信登录的非游客用户</td>
+            </tr>
+        </table>
+    </div>
+</template>
+</body>
+</html>
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript">
+var sDeviceId=$.cookie('KKYD_INFO');
+var sNowChannelCode=$.cookie('channelCode');
+var appVue=new Vue({
+	el:'#first_charge_vue',
+	data:{
+		firstShow:true,
+		forJson:[],
+		show:false
+	},
+	methods:{
+		firstCharge:function firstCharge(){
+			if(sNowChannelCode!='K900001'&&sNowChannelCode!='K900002'){
+				winLocalHref('/first_charge.html?123');
+			}else{
+				$.cookie("firstCharge", 'top_up', { expires: 999999 , path: '/'});
+				if(sDeviceId && sDeviceId.indexOf('yk_')<0 && sDeviceId!='null'){
+					winLocalHref('/top_up.html');
+				}else{
+					winLocalHref('/login/login.html');
+				}
+			}
+		}
+	}
+});
+if(sNowChannelCode!='K900001'&&sNowChannelCode!='K900002'){
+	appVue.firstShow=false;
+}else{
+	appVue.firstShow=true;
+}
+
+appVue.show=true;
+</script>

@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{
+	background-color:#fff;
+}
+
+.book_directory_box{
+	height:50px;
+	background-color:#fff;
+}
+.directory_select{
+	position:relative;
+	left:0;
+	top:0;
+	z-index:100;
+	float:right;
+	padding:0 5px;
+	margin:10px 10px 0 0;
+	height:30px;
+	background-color:#f6f6f6;
+	border:1px solid #d8d8d8;
+	box-sizing:border-box;
+}
+
+.directory_select span{
+	position:absolute;
+	right:8px;
+	top:11px;
+	width:6px;
+	height:6px;
+	background:url(../images/icons/sanjiao_5.png) no-repeat 0 0;
+	background-size:6px;
+}
+
+.directory_select select{
+	margin:0 13px 0 0;
+	padding:0;
+	border:0;
+	height:100%;
+	background:#f6f6f6;
+}
+
+
+.total_chapter{
+	margin-left:10px;
+	display:block;
+	color:#333;
+	font-weight:normal;
+	font-size:18px;
+	line-height:50px;
+}
+
+
+
+
+/*directory_list*/
+
+.directory_list{
+	overflow:hidden;
+	border-top:8px solid #f6f6f6;
+	border-bottom:8px solid #f6f6f6;
+	background-color:#fff;
+}
+.directory_list_ul{
+	overflow:hidden;
+	padding:0 10px;
+}
+
+.directory_list_ul li{
+	overflow:hidden;
+	padding:8px 0;
+	border-bottom:1px solid #d8d8d8;
+}
+
+.directory_list_ul a{
+	display:block;
+	overflow:hidden;
+	color:#333;
+}
+.directory_list_ul span{
+	margin:0 2px;
+}
+
+.directory_list_ul strong{
+	float:left;
+	margin-right:6px;
+	font-size:16px;
+	text-align:center;
+	white-space:nowrap;
+	font-weight:normal;
+	line-height:18px;
+}
+
+.directory_list_ul h3{
+	overflow:hidden;
+	float:left;
+	height:18px;
+	font-size:16px;
+	line-height:18px;
+}
+/*
+.directory_list_ul a:link,
+.directory_list_ul a:link strong,
+.directory_list_ul a:link span,
+.directory_list_ul a:link h3,*/
+.directory_list .directory_list_ul a:visited,
+.directory_list .directory_list_ul a:visited strong,
+.directory_list .directory_list_ul a:visited span,
+.directory_list .directory_list_ul a:visited h3{
+	color:#808080;
+}
+
+
+
+
+
+
+

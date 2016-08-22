@@ -1,0 +1,257 @@
+﻿<!doctype html>
+<html id="book_main_vue">
+<head>
+<meta charset="utf-8">
+<title v-text="forJson.bookName"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="css/reset.css?v20160731"/>
+<link rel="stylesheet" type="text/css" href="css/book.css?v20160731" />
+<link rel="stylesheet" type="text/css" href="css/reading.css?v20160731" />
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<style type="text/css">
+html,body{
+	height:100%;
+}
+</style>
+<script type="text/javascript" src="/js/jq/jquery.js"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body id="book_vue" style="display:none;" :style="{display:show?'block':'none'}">
+	<!--<div class="loading_body" v-if="!loadingDiaplay"><div class="loading_zhuan"><span>玩命加载中....</span></div></div>-->
+
+
+	<div style="display:none;" id="share_icon">
+    	<img src="/images/icons/icon5.png" width="300" height="300" />
+    </div>
+	
+    <div class="book_header_tit">
+        <a href="javascript:;" class="return_page"></a>
+        <!--<a href="javascript:;" class="return_home share_icon"><span></span></a>-->
+        <a href="book_shelf.html" class="return_home bookcase_icon" v-if="forJson.isInBookShelf">书架</a>
+        <a href="javascript:;" class="return_home bookcase_icon" id="add_shelf_but" v-if="!forJson.isInBookShelf" @click="addShelf(forJson.bookId)" style="width:auto;">加入书架</a>
+        <a href="/" class="return_home home_icon">首页</a>
+    </div>
+
+    <div class="page_but_box">
+        <div class="page_bu_top"></div>
+        <div class="page_bu_conter"><span>点击屏幕中央显示更多功能</span></div>
+        <div class="page_bu_bottom"></div>
+    </div>
+
+    
+    <div class="content_box">
+        <div class="logo_box">
+            <div class="logo_other position_content">
+                <a href="/book_recently_read.html">最近阅读</a>
+                <span>丨</span>
+                <a href="/book_shelf.html">书架</a>
+                <span>丨</span>
+                <a href="/login/login.html" v-if="butShow">登录</a>
+                <a href="/user_center.html" v-else onClick="clearBookInfo('firstCharge');">个人中心</a>
+            </div>
+            <a href="/" class="logo position_content"><img src="/images/icons/logo_icon_png.png"></a>
+        </div>
+        <div class="read_nav">
+            <div class="read_nav_top">
+                <div class="collect_btn position_content " :class="collectionDisplay?'':'display_none'" ><a href="javascript:;" onclick="fCollectionDisplay();">{{collectionText}}</a></div>
+                <div class="read_nav_left position_content">
+                	  <a href="/">首页</a>
+                	  <span>></span>
+                    <a :href="'book_content.html?bookId='+forJson.bookId" >详情页</a>
+                    <span>></span>
+                    <a :href="'book_list.html?bookId='+forJson.bookId+'&chapterId='+forJson.chapterId">目录</a>
+                </div>
+            </div>	
+            <div class="read_nav_center">
+                <h2 v-text="forJson.chapterName"></h2>
+            </div>
+            <div class="read_nav_bottom">
+                <div class="set_box position_content">
+                    <a href="javascript:;" class="yejian tian_se">夜间</a>
+                    <a href="javascript:;" class="baitian tian_se">白天</a>
+                    <a href="javascript:;" class="font_puls">A+</a>
+                    <a href="javascript:;" class="font_subtract">A-</a>
+                </div>
+                <a class="posi position_content" href="javascript:;">原创：快看阅读网(m.kkyd.cn)</a>
+            </div>
+        </div>
+        <div class="words text_content_box" v-html="forJson.content"></div>
+        
+        
+        <div class="ewm_new_box" v-if="!oQudaohao">
+        	<div class="ewm_new_tit">作者教你如何追更</div>
+            <div class="ewm_new_images_box position_content">
+            	<div class="ewm_new_images position_content"><img src="/images/img/kkewm.jpg?20160730"></div>
+                <div class="images_text">长按免费关注</div>
+            </div>
+            <div class="ewm_new_text_box">
+           		<p>微信搜索“快看酱”，关注后可快速追更！更新最快！还能提前阅读未发布的存稿哦！</p> 
+                <strong>快看阅读网(m.kkyd.cn)</strong>
+            </div>
+        </div>
+        
+        
+        <div class="next_btn"><a href="javascript:;" @click="pageChapter(forJson.nextChapterId,'next')" class="position_content dbclick_next">下一章</a></div>
+        <div class="again_collect">
+            <div class="collect_btn" :class="collectionDisplay?'':'display_none'"><a href="javascript:;" class="position_content" onclick="fCollectionDisplay();">{{collectionText}}</a></div>
+            <div class="read_nav_left">
+                <a href="javascript:;" @click="pageChapter(forJson.preChapterId,'prev')" class="position_content">上一章</a>
+                <span>丨</span>
+                <a href="javascript:;" class="position_content" :href="'book_list.html?bookId='+forJson.bookId+'&chapterId='+forJson.chapterId">目录</a>
+            </div>
+        </div>
+        <div class="read_img_box">
+            <a href="javascript:;" class="img_large position_content"><img src="/images/other_banner/1.jpg"></a>
+            <div class="img_text_lists">
+                <a href="javascript:;" class="img_text_list position_content">
+                    <div class="img_left"><img src="/images/img/1.jpg"></div>
+                    <p class="test_right">医吻定情：老公，暖暖爱迷情入诱， 罪爱欢情索无度</p>
+                </a>
+                <a href="javascript:;" class="img_text_list position_content">
+                    <div class="img_left"><img src="/images/img/1.jpg"></div>
+                    <p class="test_right">医吻定情：老公，暖暖爱迷情入诱， 罪爱欢情索无度</p>
+                </a>
+            </div>
+        </div>
+        <div class="ques_list">
+            <div class="ques_li">
+                <strong>美女，如何访问？</strong>
+                <span>将<a href="javascript:;">“快看阅读网（m.kkyd.cn）”</a>添加到浏览器的收藏，下次点击该收藏即可访问。</span>
+            </div>
+            <div class="ques_li">
+                <strong>帅哥，如何访问？</strong>
+                <span>下载app客户端，海量图书任您看、免费看点随您领、惊喜大奖等您抽...还等什么？</span>
+            </div>
+        </div>
+        <div class="next_btn load_btn"><a href="/down/app_down.html" class="position_content">安卓客户端下载</a></div>
+        <div class="websit"><a href="javascript:;">快看阅读网m.kkyd.cn</a></div>
+    </div>	
+
+    <div class="text_con_footer">
+        <div class="text_con_font_edit">
+            <div class="font_size_box">
+                <a href="javascript:;" class="font_subtract">Aa-</a>
+                <a href="javascript:;" class="font_puls">Aa+</a>
+            </div>
+            <div class="bg_color_box">
+                <a href="javascript:;" bg_color="book_bg_1" class="bg_eyeshield">护眼</a>
+                <a href="javascript:;" bg_color="book_bg_2" class="bg_parchment">羊皮纸</a>
+                <a href="javascript:;" bg_color="book_bg_3" class="bg_pink">贵妃粉</a>
+                <a href="javascript:;" bg_color="book_bg_4" class="bg_paper">纸之灵</a>
+            </div>
+            <div class="book_other_but_box">
+                <a href="javascript:;" class="book_prev_chapter" @click="pageChapter(forJson.preChapterId,'prev')">
+                    <span></span>
+                    <strong>上一章</strong>
+                </a>
+                <a :href="'book_list.html?bookId='+forJson.bookId+'&chapterId='+forJson.chapterId" class="book_directory">
+                    <span></span>
+                    <strong>目录</strong>
+                </a>
+                <a href="javascript:;" class="book_setting">
+                    <span></span>
+                    <strong>设置</strong>
+                </a>
+                <a href="javascript:;" class="book_night">
+                    <span></span>
+                    <strong>夜间</strong>
+                    <em></em>
+                    <b>白天</b>
+                </a>
+                <a href="javascript:;" class="book_prev_next" @click="pageChapter(forJson.nextChapterId,'next')">
+                    <span></span>
+                    <strong>下一章</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="text_but_error"></div>
+    
+        
+    
+    
+    <div class="bind_alert_box" id="clear_alert_box">
+        <div class="bind_alert_main">
+            <div class="alert_tit">
+                <h3>”加入书架“失败</h3>
+            </div>
+            <div class="alert_text">
+                <p class="alert_txt_c">你当前为游客状态，需登录后才可加入书架</p>
+            </div>
+            <div class="alert_but_box">
+                <a href="/login/login.html" class="alert_but_1" onClick="postTongji('&type=wdlAddBookShelf')">马上登录</a>
+                <a href="javascript:;" class="alert_but_1" onClick="document.getElementById('clear_alert_box').style.display='none';postTongji('&type=wdlCancelBookShelf')">取消</a>
+            </div>
+        
+        </div>
+        
+        <div class="bind_alert_height"></div>
+    </div>
+    
+    <div class="bind_alert_box" id="collection_display">
+        <div class="bind_alert_main">
+            <div class="alert_tit">
+                <h3>添加到“浏览器书签”成功</h3>
+            </div>
+            <div class="alert_text">
+                <p class="alert_txt_c">下次进入可直接在“浏览器书签”中打开</p>
+            </div>
+            <div class="alert_but_box">
+                <a href="javascript:;" class="alert_but_1" onClick="document.getElementById('collection_display').style.display='none';postTongji('&type=addBookMark')">我知道了</a>
+            </div>
+        
+        </div>
+        
+        <div class="bind_alert_height"></div>
+    </div>
+    
+    
+    <div class="add_destop" v-if="iosShow">
+		<div class="img_box"><img src="images/icons/1.png"></div>
+		<span class="span_cha" @click="fixediOSRemove"></span>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?q=20160825"></script>
+<script type="text/javascript" src="/js/javascript/book_local_storage_test.js?j=20160811"></script>
+<script type="text/javascript" src="/js/javascript/book.js?v=20160803"></script>
+<script type="text/javascript" src="/js/javascript/book_local_storage.js?v=20160804"></script>
+
+
+
+<script type="text/javascript">
+	if(!$.cookie("contentJson")){
+		fSetCookie("contentJson",oJson,'30');
+		$('.page_but_box').addClass('page_but_show');
+	}else{
+		var sJson=fGetCookie("contentJson");
+		//console.log(sJson);
+		//$('.text_content_box').css('font-size',sJson.fontSize);
+		$('.text_content_box').attr('class','text_content_box count_font_'+ parseInt(sJson.fontSize));
+		$('body').attr('class',sJson.bookBg.aAookBg[sJson.bookBg.selectVal]);
+		$('.bg_color_box a:eq('+ sJson.bookBg.selectVal +')').addClass('select_bg');
+		if(sJson.bookNight){
+			$('body').addClass('book_bg_night');
+		}
+		if(sJson.pageShow){
+			$('.page_but_box').removeClass('page_but_show');
+			$('.page_but_box div').html('');
+		}else{
+			$('.page_but_box').addClass('page_but_show');
+		}
+	}
+</script>

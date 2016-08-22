@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>登录</title>
+
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/jscript">
+
+	var sKkydIfo=$.cookie('KKYD_INFO');
+	if(sKkydIfo){
+        window.location.href='/user_center.html';
+	}
+	var ua = window.navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+        window.location.href='/asg/portal/h5/login/weixinInner.do';
+    }
+</script>
+<link href="../css/reset.css?v20160731" rel="stylesheet" type="text/css">
+<link href="../css/common.css?v20160731" rel="stylesheet" type="text/css">
+<link href="../css/edit_password.css?v20160731" rel="stylesheet" type="text/css">
+<link href="../css/login.css?v20160731" rel="stylesheet" type="text/css">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c0645c8b1c54674c9f696ea76bb353b6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+
+<body>
+<div style="display:none;" id="share_icon"><img src="/images/icons/icon5.png" /></div>
+<div class="header_tit">
+	<a href="javascript:history.go(-1);" class="return_page_2"></a>
+	<a href="/" class="return_home">首页</a>
+    <h1 class="header_h1">登录</h1>
+</div>
+
+<div class="login_box">
+	<div class="lgoin_but">
+		<a href="/asg/portal/h5/login/weixin.do" class="lgoin_but_color_1"><img src="../images/icons/weixin.png" /></a>
+        <h2>微信</h2>
+    </div>
+	<div class="lgoin_but">
+		<a href="/asg/portal/h5/login/qq.do" class="lgoin_but_color_2"><img src="../images/icons/qq.png" /></a>
+        <h2>QQ</h2>
+    </div>
+	<div class="lgoin_but">
+		<a href="/asg/portal/h5/login/weibo.do" class="lgoin_but_color_3"><img src="../images/icons/sina.png" /></a>
+        <h2>新浪</h2>
+    </div>
+  <!--  
+	<div class="lgoin_but">
+		<a href="/asg/portal/h5/login/alipay.do" class="lgoin_but_color_4"><img src="../images/icons/zfb.png" /></a>
+        <h2>支付宝</h2>
+    </div>
+	<div class="lgoin_but">
+		<a href="/asg/portal/h5/login/baidu.do" class="lgoin_but_color_5"><img src="../images/icons/bd.png" /></a>
+        <h2>百度</h2>
+    </div>
+	<div class="lgoin_but">
+		<a href="javascript:;" class="lgoin_but_color_6"><img src="../images/icons/kuaikan.png" /></a>
+        <h2>快看阅读</h2>
+    </div>-->
+</div>
+
+
+
+
+
+
+
+
+
+
+     
+
+
+<div class="footer_box">
+	<div class="footer_other_box">
+    	<a href="/login/login.html" class="footer_other_left">登录</a>
+    	<a href="book_shelf.html" class="footer_other_left">书架</a>
+    </div>
+    <div class="footer_info">
+        <div class="footer_list_box">
+        	<div class="footer_li">
+				联系客服 <strong>工作时间：每天9:30-18:30</strong> <strong>客服电话：<a href="tel:4001180066;">4001180066</a></strong>
+            </div>
+        	<div class="footer_li">
+				客服QQ：1329139338 <strong>微信公众号：快看酱</strong> <strong>新浪微博：快看阅读</strong>
+            </div>
+        	<div class="footer_li">
+				©2014-2015 m.kkyd.cn
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="login_from_box" id="login_from_box">
+	<div class="login_from_tit">快看账号登录</div>
+    
+    
+
+	<div class="pow_main_box">
+    	<div class="pow_box">
+        	<div class="pow_input_box">
+            	<div class="pow_tit">账号</div>
+                <div class="pow_input"><input type="tel" placeholder="请输入您的快看账号" v-model="forJson.username" /></div>
+            </div>
+        	<div class="pow_input_box">
+            	<div class="pow_tit">密码</div>
+                <a href="javascript:;" class="pow_eye_but"></a>
+                <div class="pow_eye_input"><input type="password" placeholder="请输入您的密码" v-model="forJson.password" /></div>
+            </div>
+        </div>
+        
+        
+        <div class="login_but_box">
+            <a href="javascript:;" class="login_but">登录</a>
+        </div>
+        
+        <div class="login_other_box">
+        	<div class="login_checkbox">
+            	<div class="login_checked_box checked" :class="forJson.rememberMe ? 'checked' : ''"></div>
+                <strong>记住我</strong>
+            </div>
+            
+            <div class="login_other_a">
+            	<a href="../password/edit_password.html">注册</a>
+                <span></span>
+            	<a href="../password/edit_password.html">忘记密码?</a>                
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+</body>
+</html>
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/login.js?v20160731"></script>

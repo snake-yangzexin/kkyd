@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>最近阅读</title>
+<script type="text/javascript" src="/js/jq/jquery.js"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript">
+var sLocalUrl='';
+var oGetLocalShelf=getLocalRecentlyRead();
+if(oGetLocalShelf['content'].length>0 && oGetLocalShelf['content'][0].bookid && oGetLocalShelf['content'][0].chapterid){
+	sLocalUrl='/book.html?bookId=' + oGetLocalShelf['content'][0].bookid+'&chapterId=' + oGetLocalShelf['content'][0].chapterid;
+	
+}else{
+	sLocalUrl='/book_recently_read.html';
+}
+winLocalHref(sLocalUrl);
+
+</script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body>
+</body>
+</html>

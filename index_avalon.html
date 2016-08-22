@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>快看阅读</title>
+<link href="css/reset.css" rel="stylesheet" type="text/css">
+<link href="css/common.css" rel="stylesheet" type="text/css">
+<link href="css/index.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="test/test.css" />
+<script type="text/javascript" src="js/jq/jquery.js"></script>
+<script type="text/javascript" src="js/vue/vue.js"></script>
+<!--<script type="text/javascript" src="js/jq/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jq/touch-0.2.14.min.js"></script>-->
+<script type="text/javascript" src="test/test.js"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body id="test_vue">
+<!--<div class="header_tit">
+	<a href="javascript:;" class="return_page"></a>
+    <h1 class="header_h1">快看酱</h1>
+</div>
+-->
+
+
+<template v-for="blockInfoList in forJson">
+<!--<div class="head_user_box">
+	    <div class="head_logo">
+	        <a href="/"><img src="images/icons/logo_icon_gif.gif" /></a>
+	    </div>
+		<div class="head_user_right">
+	        <a href="/login/login.html" class="add_favorites" style="margin-right:10px;">个人中心</a>
+	        <a href="/login/login.html" class="add_favorites" style="margin-right:10px;">登录</a>
+	        <div class="add_favorites">加入收藏</div>
+	    </div>
+    </div>-->
+    
+    <div class="head_tab_box" v-if="blockInfoList.ftlname=='nav.ftl'">
+		<div class="head_tab_but_box">
+			<a v-for="first in blockInfoList.expandMap.first" href="###">{{first.name}}</a>
+	    </div>
+	    <div class="head_tab_nav_box">
+	    	<a v-for="second in blockInfoList.expandMap.second" :href="###">{{second.name}}</a>
+	    </div>
+    </div>
+
+
+
+
+
+    <div class="head_search_height" v-if="blockInfoList.ftlname=='search.ftl'">
+		<div class="head_search_box">
+	        <div class="search_input_box">
+	            <a href="###" class="search_but" id="search_form_but"></a>
+	            <div class="search_input"><input type="search" placeholder="盗墓笔记" /></div>
+	        </div>
+	    </div>
+	</div>
+
+
+    
+
+  
+
+    <div class="conter_ul_box" v-if="blockInfoList.ftlname=='provider.ftl'">
+
+    	<div class="conter_ul_tit">
+            <h2 class="conter_ul_tit_h2"><strong>{{blockInfoList.showName}}</strong><span>小编精选最热小说</span></h2>
+        </div>
+        
+        <div class="conter_list_box">
+        	<ul class="conter_ul">
+            	<li  v-for="blockResources in blockInfoList.blockResources">
+                	<a href="###" class="conter_li_img_text" v-if="$index==0">
+                    	<div class="conter_li_img"><img src="{{blockResources.img}}" /></div>
+                        <div class="conter_li_text">
+                        	<h3 class="conter_li_text_h3"><strong>{{blockResources.name}}</strong><span class="hot_icon_1"></span></h3>
+                            <div class="conter_li_tag_box" >
+                            	<i v-for="tag in blockResources.tag">{{tag}}</i>
+                            </div>
+                            <p class="conter_li_text_p">{{blockResources.intro.substring(0,20)}}...</p>
+                            <div class="conter_li_other">
+                            	<span>{{blockResources.followNum}}人在追</span>
+                                <strong>{{blockResources.author}}</strong>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="book_content.html" class="conter_li_a" v-if="$index>0">
+                    	<strong>{{blockResources.category}}</strong>
+                        <h3 class="conter_li_a_h3">{{blockResources.name}}</h3>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    
+    </div>
+   
+
+	    <div class="conter_ul_box" v-if="blockInfoList.ftlname=='book.ftl'">
+
+    	<div class="conter_ul_tit">
+    		<a href="javascript:;" class="conter_ul_tit_more">更多</a>
+            <h2 class="conter_ul_tit_h2"><strong>{{blockInfoList.showName}}</strong></h2>
+        </div>
+    
+        <div class="conter_list_box">
+        	<ul class="conter_ul">
+            	<li v-for="blockResources in blockInfoList.blockResources">
+                	<a href="###" class="conter_li_img_text" v-if="$index==0">
+                    	<div class="conter_li_img"><img src="{{blockResources.img}}" /></div>
+                        <div class="conter_li_text">
+                        	<h3 class="conter_li_text_h3"><strong>{{blockResources.name}}</strong><span class="hot_icon_1"></span></h3>
+                        	<div class="conter_li_tag_box" >
+                            	<i v-for="tag in blockResources.tag">{{tag}}</i>
+                            </div>
+                            <p class="conter_li_text_p">{{blockResources.intro.substring(0,20)}}...</p>
+                            <div class="conter_li_other">
+                            	<span>{{blockResources.followNum}}人在追</span>
+                                <strong>{{blockResources.author}}</strong>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="###" v-if="$index>0">
+                    	<div class="name_classify_box">
+                    		<span>[{{blockResources.category}}]</span>
+                    		<strong>{{blockResources.name}}</strong>
+                    	</div>
+                    	<p class="other_content_p">{{blockResources.intro}}</p>
+                    	<div class="other_people">
+                    		<span class="other_people_right">{{blockResources.followNum}}人在追</span>
+                    		<strong class="other_people_author">{{blockResources.author}}</strong>
+                    	</div>
+                    </a>
+                </li>
+            </ul>
+            <a href="javascript:;" class="conter_list_more_but"><span>查看更多</span></a>
+        </div>
+    
+    </div>
+
+    
+    <div class="conter_ul_box" v-if="blockInfoList.ftlname=='top.ftl'">
+    
+    	<div class="conter_ul_tit">
+        	<a href="javascript:;" class="conter_ul_tit_more">更多</a>
+            <h2 class="conter_ul_tit_h2">{{blockInfoList.showName}}</h2>
+        </div>
+        
+	        <div class="conter_list_box" >
+	        	<div class="conter_list_tab_box">
+	            	<a href="javascript:;" v-for="rankList in blockInfoList.expandMap.rankList">{{rankList.rankName}}</a>
+	            </div>
+	            
+	            <div class="conter_list_tab_main">
+	                <ul class="conter_list_tab_ul" v-for="rankList in blockInfoList.expandMap.rankList" v-bind:style="$index==0?'display:block;':''">
+	                    <li v-for="books in rankList.books"><a href="book_content.html">{{$index+1}}.{{books.bookName}}</a></li>
+	                </ul>
+	            </div>
+	            
+	            <a href="javascript:;" class="conter_list_more_but"><span>查看更多</span></a>
+	        </div>
+       
+    </div>
+    
+
+
+	<div class="conter_ul_box" v-if="blockInfoList.ftlname=='topic.ftl'">
+    	<div class="conter_ul_tit">
+            <h2 class="conter_ul_tit_h2">{{blockInfoList.showName}}</h2>
+        </div>
+        <div class="conter_banner_box">
+            <div class="conter_banner_img" v-for="blockResources in blockInfoList.blockResources">
+            	<a href="javascript:;"><img src="{{blockResources.img}}" /></a>
+            </div>
+        </div>
+    </div>
+    
+   
+</template>
+
+
+<div class="footer_box">
+	<div class="footer_other_box">
+    	<a href="javscript:;" class="footer_other_left">登录</a>
+    	<a href="book_shelf.html" class="footer_other_left">书架</a>
+    </div>
+    <div class="footer_info">
+        <div class="footer_list_box">
+        	<div class="footer_li">
+				工作时间：一周七天9:30-18:30
+            </div>
+        	<div class="footer_li">
+				客服电话：<a href="tel:4001180066;">4001180066</a>
+            </div>
+        	<div class="footer_li">
+				客服QQ：1329139338
+            </div>
+        	<div class="footer_li">
+				微信公众号：kuaikanxiaoshuo
+            </div>
+        	<div class="footer_li">
+				新浪微博：快看酱
+            </div>
+        	<div class="footer_li">
+				©2014-2015 www.ishugui.com
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="download_box">
+	<a href="javascript:;" class="down_tips_but">已经开始下载啦~<br>下载完成后，如不能自动安装，可下拉状态栏点击app进行手动安装。</a>
+</div>
+
+
+
+<div class="fixed_down_box">
+	<a href="javascript:;" class="fixed_clear_but"><img src="images/icons/cha_icon_1.png" /></a>
+    <a href="javascript:;" class="fixed_down_but">免费下载</a>
+    <div class="fixed_text_box">
+    	<div class="fixed_text_img"><img src="images/icons/logo.png" /></div>
+        <p>
+        	<strong>快看APP</strong>
+            <span>免费追更 免费领看点 省流量无广告</span>
+        </p>
+    </div>
+    
+</div>-->
+
+
+
+
+<a href="javascript:;" class="return_top_but"></a>
+
+
+
+</body>
+</html>
+
+

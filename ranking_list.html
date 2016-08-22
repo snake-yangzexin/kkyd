@@ -1,0 +1,142 @@
+<!doctype html>
+<html id="ranking_list_vue">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title v-text="titleName"></title>
+<link href="css/reset.css?v20160731" rel="stylesheet" type="text/css">
+<link href="css/common.css?v20160731" rel="stylesheet" type="text/css">
+<link href="css/index.css?v20160731" rel="stylesheet" type="text/css">
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c0645c8b1c54674c9f696ea76bb353b6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body>
+<div class="loading_body" v-if="!show"><div class="loading_zhuan"><span>玩命加载中....</span></div></div>
+<div style="display:none;" id="share_icon"><img src="/images/icons/icon5.png" /></div>
+<template v-if="show">
+
+    <div class="header_tit">
+        <a href="javascript:;" class="return_page"></a>
+        <a href="/" class="return_home">首页</a>
+        <h1 class="header_h1" v-text="titleName"></h1>
+    </div>
+    
+    <!--搜索-->
+    <div class="head_search_height">
+        <div class="head_search_box">
+            <div class="search_input_box">
+                <a href="javascript:;" sHref="search_list.html" class="search_but" id="search_form_but"></a>
+                <div class="search_input"><input type="text" name="name" placeholder="盗墓笔记" /></div>
+            </div>
+        </div>
+   		<!--搜索-->
+    </div>
+    
+    
+    
+    
+    <div class="index_conter">
+        
+        
+        <div class="conter_ul_box">
+            
+            <div class="conter_list_box">
+                <ul class="conter_ul">
+                    <li v-for="searchList in searchMain">                    
+                        <a :href="'book_content.html?bookId='+searchList.bookId" class="conter_li_img_text" v-if="$index<3">
+                            <div class="conter_li_img"><img src="/images/img/book_bg.png" :data-original="searchList.coverWap" /></div>
+                            <div class="conter_li_text">
+                                <h3 class="conter_li_text_h3"><strong v-if="searchList.bookTypeName">[{{searchList.bookTypeName}}]</strong> {{searchList.bookName}}</h3>
+                                <div class="conter_li_tag_box">
+                                    <i v-for="tag in searchList.tag">{{tag}}</i>
+                                    <i v-if="searchList.status" class="i_yellow">{{searchList.status}}</i>
+                                </div>
+                                <p class="conter_li_text_p" v-html="searchList.intro"></p>
+                                <div class="conter_li_other">
+                                    <span v-if="searchList.clickNum">{{searchList.clickNum}}人在追</span>
+                                    <strong v-text="searchList.author"></strong>
+                                </div>
+                            </div>
+                        </a>
+                        <a :href="'book_content.html?bookId='+searchList.bookId" class="conter_li_a" v-else>
+                            <h3 class="conter_li_a_h3">{{$index+1}}.{{searchList.bookName}}</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+            
+        
+    </div>
+    
+
+
+</template>
+
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/jq/jquery.lazyload.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/ranking_list.js?v20160731"></script>
+
+
+
+
+<script type="text/javascript">
+$(function(){
+	
+	$(document).on('click','#search_form_but',function(){
+		var sVal=$.trim($('.search_input input').val());
+		if(sVal){
+			winLocalHref('/search_list.html?keyword='+sVal);
+		}else{
+			sVal=$.trim($('.search_input input').attr('placeholder'));
+			winLocalHref('/search_list.html?keyword='+sVal);
+		}
+	}).on('keyup','.search_input input',function(e){
+		var e=e||window.event;
+		if(e.keyCode==13){
+			var sVal=$.trim($('.search_input input').val());
+			if(sVal){
+				winLocalHref('/search_list.html?keyword='+sVal);
+			}else{
+				sVal=$.trim($('.search_input input').attr('placeholder'));
+				winLocalHref('/search_list.html?keyword='+sVal);
+			}
+		}
+	});
+})
+	
+</script>
+
+
+
+
+

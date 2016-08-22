@@ -1,0 +1,186 @@
+<!doctype html>
+<html id="add_kkj_vue">
+<head>
+<meta charset="utf-8">
+<title v-text="forJson.bookName"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="css/reset.css?v20160728"/>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c0645c8b1c54674c9f696ea76bb353b6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript" src="/js/jq/jquery.js"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160728"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160728"></script>
+</head>
+
+
+<body style="background-color:#f9e8e8;">
+
+
+	<div style="font-size:14px; padding:10px 16px; color:#D93636;">原创：快看阅读（m.kkyd.cn）</div>
+
+	<div style="padding:10px 0 0; margin:0 16px; border-top:1px solid #d8d8d8;font-size:14px; color:#333; line-height:24px; text-indent:28px;">亲，后续内容由微信公众号“快看酱”独家发布，想要阅读更多精彩后续，请长按下面的二维码关注“快看酱”</div>
+    <div style="padding:0 0 10px; margin:0 16px; border-bottom:1px solid #d8d8d8; font-size:14px; color:#333; line-height:24px; text-indent:28px;">进入公众号后，点击"{{sText}}"就可以继续看啦~小编爱你们</div>
+
+	<div style="margin:20px auto 10px; width:200px;">
+    	<img id="touchArea" src="images/img/kkewm_200.gif" style="display:block; width:200px;"/>
+    </div>
+   	<div style="font-size:14px; color:#333; line-height:30px; text-align:center;">长按免费关注</div>
+
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160728"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160728"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160728"></script>
+<script type="text/javascript">
+
+
+var appVue=new Vue({
+	el:'#add_kkj_vue',
+	data:{
+		nTimeNum:-500,
+		clearTime:null,
+		sText:'出差一周归来，老公让我做的动作令我感到羞耻……'
+	}
+});
+
+$(function(){
+	postTongji('&type=guanzhukkj');
+	
+	/*
+	$("#touchArea").on({
+		touchstart: function(e){
+			appVue.clearTime=setInterval(function(){
+				appVue.nTimeNum=appVue.nTimeNum+500;
+			},500);
+		 	e.preventDefault();
+		},
+		touchmove: function(){
+		},
+		touchend: function(){	
+			if(appVue.nTimeNum>500){	
+				postTongji('&type=ewmimg'+appVue.nTimeNum);
+			}
+			appVue.nTimeNum=-500;
+			clearInterval(appVue.clearTime);
+			appVue.clearTime=null;
+			return false; 
+		}
+	})
+	*/
+	
+})
+
+
+
+var sChannelCode=$.cookie('channelCode');
+
+/*
+if(sChannelCode=='K900033'){
+	appVue.sText='出差一周归来，老公让我做的动作令我感到羞耻……';
+}
+if(sChannelCode=='K900040'){
+	appVue.sText='老公是个军人，很少回家，可每次回来他都让我整夜……';
+}
+if(sChannelCode=='K900044'){
+	appVue.sText='一夜交易后，她瘫在地上低声乞求……';
+}
+
+if(sChannelCode=='K900047'||sChannelCode=='K900048'){
+	appVue.sText='新婚夜，老公发现她是自己一夜情对象后……';
+}
+
+if(sChannelCode=='K900050'||sChannelCode=='K900051'){
+	appVue.sText='姐姐竟然把我送上了姐夫的床……';
+}
+*/
+
+
+
+switch(sChannelCode){
+	case 'K900033':
+	appVue.sText='出差一周归来，老公让我做的动作令我感到羞耻……';
+	break;
+	
+	case 'K900069':
+	appVue.sText='我被老板叫进办公室，他竟逼我躺在办公桌上，任由他……';
+	break;
+	
+	case 'K900070':
+	appVue.sText='我拒绝了男友的要求后，看见小三穿着性感睡衣走进房间……';
+	break;
+	
+	case 'K900053':
+	case 'K900068':
+	appVue.sText='有个每晚都要到腿软的天蝎座老公是种什么样的体验……';
+	break;
+	
+	case 'K900040':
+	case 'K900060':
+	appVue.sText='老公是个军人，很少回家，可每次回来他都让我整夜……';
+	break;
+	
+	
+	case 'K900044':
+	case 'K900058':
+	case 'K900059':
+	appVue.sText='一夜交易后，她瘫在地上低声乞求……';
+	break;
+	
+	
+	case 'K900047':
+	case 'K900048':
+	appVue.sText='新婚夜，老公发现她是自己一夜情对象后……';
+	break;
+	
+	
+	case 'K900050':
+	case 'K900051':
+	appVue.sText='姐姐竟然把我送上了姐夫的床……';
+	break;
+	
+	
+	case 'K900062':
+	case 'K900063':
+	appVue.sText='她找叔叔帮忙，却被叔叔压倒在床上……';
+	break;
+	
+	
+	case 'K900054':
+	case 'K900055':
+	case 'K900065':
+	appVue.sText='结婚后老公从没碰过我，我以为他性冷淡，没想到……';
+	break;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

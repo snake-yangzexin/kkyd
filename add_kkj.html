@@ -1,0 +1,472 @@
+<!doctype html>
+<html id="add_kkj_vue">
+<head>
+<meta charset="utf-8">
+<title v-text="forJson.bookName"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="css/reset.css?v20160729"/>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c0645c8b1c54674c9f696ea76bb353b6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script type="text/javascript" src="/js/jq/jquery.js"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+
+<body style="background-color:#f9e8e8;">
+
+
+	<div style="font-size:14px; padding:10px 16px; color:#D93636;">原创：快看阅读（m.kkyd.cn）</div>
+
+	<div style="padding:10px 0 0; margin:0 16px; border-top:1px solid #d8d8d8;font-size:14px; color:#333; line-height:24px; text-indent:28px;">亲，后续内容由微信公众号“快看酱”独家发布，想要阅读更多精彩后续，请长按下面的二维码关注“快看酱”</div>
+    <div style="padding:0 0 10px; margin:0 16px; border-bottom:1px solid #d8d8d8; font-size:14px; color:#333; line-height:24px; text-indent:28px;">进入公众号后，{{sText}}</div>
+
+	<div style="margin:20px auto 10px; width:200px;">
+    	<img id="touchArea" src="images/img/kkewm_200.gif?123" style="display:block; width:200px;"/>
+    </div>
+   	<div style="font-size:14px; color:#333; line-height:30px; text-align:center;">长按免费关注</div>
+
+
+</body>
+</html>
+
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript">
+
+
+var appVue=new Vue({
+	el:'#add_kkj_vue',
+	data:{
+		nTimeNum:-500,
+		textShow:true,
+		clearTime:null,
+		sText:'点击“出差一周归来，老公让我做的动作令我感到羞耻……”就可以继续看啦~小编爱你们'
+	}
+});
+
+$(function(){
+	postTongji('&type=guanzhukkj');
+	
+	/*
+	$("#touchArea").on({
+		touchstart: function(e){
+			appVue.clearTime=setInterval(function(){
+				appVue.nTimeNum=appVue.nTimeNum+500;
+			},500);
+		 	e.preventDefault();
+		},
+		touchmove: function(){
+		},
+		touchend: function(){	
+			if(appVue.nTimeNum>500){	
+				postTongji('&type=ewmimg'+appVue.nTimeNum);
+			}
+			appVue.nTimeNum=-500;
+			clearInterval(appVue.clearTime);
+			appVue.clearTime=null;
+			return false; 
+		}
+	})
+	*/
+	
+})
+
+
+
+var sChannelCode=$.cookie('channelCode');
+
+/*
+if(sChannelCode=='K900033'){
+	appVue.sText='出差一周归来，老公让我做的动作令我感到羞耻……';
+}
+if(sChannelCode=='K900040'){
+	appVue.sText='老公是个军人，很少回家，可每次回来他都让我整夜……';
+}
+if(sChannelCode=='K900044'){
+	appVue.sText='一夜交易后，她瘫在地上低声乞求……';
+}
+
+*/
+
+
+
+switch(sChannelCode){
+	case 'K900033':
+	appVue.sText='点击“出差一周归来，老公让我做的动作令我感到羞耻……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900069':
+	case 'K900074':
+	case 'K900075':
+	case 'K900076':
+	case 'K900079':
+	case 'K900080':
+	case 'K900081':
+	case 'K900083':
+	appVue.sText='点击“我被老板叫进办公室，他竟逼我躺在办公桌上，任由他……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900092':
+	case 'K900047':
+	case 'K900101':
+	case 'K900117':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《首席的独家宠爱》。小编爱你们哟~';
+	break;
+	
+	case 'K900102':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《奉子逃婚，绯闻老公太傲娇》。小编爱你们哟~';
+	break;
+	
+	case 'K900024':
+	case 'K900029':
+	appVue.sText='输入“婚外情”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900070':
+	appVue.sText='点击“我拒绝了男友的要求后，看见小三穿着性感睡衣走进房间……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900053':
+	case 'K900068':
+	appVue.sText='点击“有个每晚都要到腿软的天蝎座老公是种什么样的体验……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900040':
+	case 'K900060':
+	appVue.sText='点击“老公是个军人，很少回家，可每次回来他都让我整夜……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900058':
+	case 'K900059':
+	appVue.sText='点击“一夜交易后，她瘫在地上低声乞求……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900048':
+	appVue.sText='点击“新婚夜，老公发现她是自己一夜情对象后……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900118':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《宠上毒辣小狂妻》。小编爱你们哟~';
+	break;
+	
+	case 'K900051':
+	case 'K900085':
+	appVue.sText='点击“姐姐竟然把我送上了姐夫的床，那晚我们疯狂的……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900093':
+	case 'K900099':
+	case 'K900095':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《天价金婚：亿万老公诱妻成瘾》。小编爱你们哟~';
+	break;
+	
+	case 'K900062':
+	case 'K900063':
+	appVue.sText='点击“她找叔叔帮忙，却被叔叔压倒在床上……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900089':
+	case 'K900090':
+	case 'K900050':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《旧爱新婚：Boss情劫娇萌妻》。小编爱你们哟~';
+	break;
+	
+	case 'K900097':
+	case 'K900111':
+	case 'K900114':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《缠绵入骨：老公饶了我》。小编爱你们哟~';
+	break;
+	
+	case 'K900054':
+	case 'K900055':
+	case 'K900065':
+	appVue.sText='点击“结婚后老公从没碰过我，我以为他性冷淡，没想到……”就可以继续看啦~小编爱你们';
+	break;
+	
+	case 'K900112':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《不良宠婚》。小编爱你们哟~';
+	break;
+	
+	case 'K900113':
+	appVue.sText='点击下面的菜单“最近阅读”，进入“最近阅读记录”，就可以继续看后续精彩内容啦，本书书名是《第七任新娘》。小编爱你们哟~';
+	break;
+	
+	
+	
+	
+	case 'K900119':
+	case 'K900120':
+	case 'K900106':
+	case 'K900273':
+	case 'K900274':
+	case 'K900275':
+	case 'K900276':
+	case 'K900277':
+	appVue.sText='输入“01”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900121':
+	case 'K900105':
+	case 'K900176':
+	case 'K900219':
+	case 'K900239':
+	case 'K900227':
+	case 'K900233':
+	case 'K900254':
+	case 'K900295':
+	case 'K900324':
+	case 'K900325':
+	appVue.sText='输入“02”就可以继续看啦~小编爱你们！';
+	break;
+	
+	case 'K900135':
+	case 'K900145':
+	case 'K900150':
+	case 'K900154':
+	case 'K900167':
+	case 'K900170':
+	case 'K900202':
+	case 'K900336':
+	appVue.sText='输入“03”就可以继续看啦~小编爱你们！';
+	break;
+	
+	case 'K900122':
+	case 'K900263':
+	case 'K900264':
+	case 'K900265':
+	case 'K900266':
+	case 'K900267':
+	case 'K900312':
+	appVue.sText='输入“04”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900123':
+	case 'K900043':
+	case 'K900044':
+	case 'K900133':
+	case 'K900129':
+	case 'K900158':
+	case 'K900152':
+	case 'K900165':
+	case 'K900204':
+	case 'K900205':
+	case 'K900216':
+	case 'K900217':
+	case 'K900327':
+	appVue.sText='输入“05”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900124':
+	case 'K900128':
+	case 'K900134':
+	case 'K900130':
+	case 'K900146':
+	case 'K900162':
+	case 'K900175':
+	case 'K900178':
+	case 'K900168':
+	case 'K900169':
+	case 'K900203':
+	case 'K900206':
+	case 'K900211':
+	case 'K900212':
+	case 'K900213':
+	case 'K900197':
+	case 'K900226':
+	case 'K900237':
+	case 'K900251':
+	case 'K900252':
+	appVue.sText='输入“06”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900042':
+	case 'K900045':
+	case 'K900298':
+	case 'K900330':
+	appVue.sText='输入“07”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900144':
+	case 'K900159':
+	case 'K900153':
+	case 'K900166':
+	case 'K900221':
+	appVue.sText='输入“08”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900293':
+	case 'K900294':
+	case 'K900326':
+	appVue.sText='输入“09”就可以继续看啦，小编爱你们！';
+	break;
+	
+	
+	case 'K900163':
+	case 'K900173':
+	case 'K900177':
+	case 'K900180':
+	appVue.sText='输入“10”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900164':
+	case 'K900181':
+	case 'K900199':
+	case 'K900201':
+	case 'K900231':
+	case 'K900235':
+	appVue.sText='输入“11”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900196':
+	case 'K900334':
+	appVue.sText='输入“12”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900220':
+	case 'K900240':
+	case 'K900228':
+	case 'K900230':
+	case 'K900236':
+	case 'K900250':
+	case 'K900255':
+	case 'K900261':
+	case 'K900171':
+	case 'K900328':
+	case 'K900329':
+	appVue.sText='输入“13”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900244':
+	case 'K900248':
+	case 'K900256':
+	appVue.sText='输入“14”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900207':
+	case 'K900214':
+	case 'K900215':
+	case 'K900198':
+	case 'K900224':
+	case 'K900218':
+	case 'K900238':
+	case 'K900253':
+	case 'K900291':
+	case 'K900292':
+	case 'K900335':
+	appVue.sText='输入“15”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900222':
+	case 'K900229':
+	case 'K900232':
+	case 'K900258':
+	case 'K900259':
+	case 'K900313':
+	case 'K900311':
+	case 'K900320':
+	case 'K900321':
+	case 'K900340':
+	case 'K900333':
+	appVue.sText='输入“16”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900242':
+	case 'K900246':
+	case 'K900282':
+	case 'K900283':
+	case 'K900284':
+	case 'K900285':
+	case 'K900309':
+	case 'K900322':
+	case 'K900323':
+	appVue.sText='输入“17”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900249':
+	appVue.sText='输入“18”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900243':
+	case 'K900247':
+	case 'K900268':
+	case 'K900269':
+	case 'K900270':
+	case 'K900271':
+	case 'K900272':
+	appVue.sText='输入“19”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900241':
+	case 'K900245':
+	case 'K900257':
+	case 'K900260':
+	case 'K900314':
+	case 'K900315':
+	case 'K900306':
+	case 'K900307':
+	case 'K900308':
+	case 'K900310':
+	case 'K900318':
+	case 'K900319':
+	case 'K900210':
+	case 'K900337':
+	case 'K900339':
+	case 'K900331':
+	case 'K900332':
+	appVue.sText='输入“20”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900278':
+	case 'K900279':
+	case 'K900280':
+	case 'K900281':
+	appVue.sText='输入“21”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900262':
+	case 'K900304':
+	appVue.sText='输入“22”就可以继续看啦，小编爱你们！';
+	break;
+	
+	case 'K900296':
+	case 'K900297':
+	appVue.sText='输入“23”就可以继续看啦，小编爱你们！';
+	break;
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

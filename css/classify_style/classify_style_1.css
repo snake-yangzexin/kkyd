@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document 男生 */
+
+.add_favorites,
+.conter_li_other span,
+.footer_other_left,
+.index_recently_read .index_recently_read_a{
+	color:#df230a;
+}
+
+
+.head_tab_but_box,
+.conter_list_tab_box a.hover,
+.header_tit,
+.ranking_classify_list_tab_box .hover,
+.user_esc_box  a.red,
+.top_pu_but,
+.began_read,
+.next_btn,
+.set_box span,
+.set_box a,
+.s_but{
+	background-color:#0fc5c7;
+}
+
+.conter_list_tab_box a,
+.ranking_head_tab_box .hover,
+.ranking_classify_list_tab_box a span,
+.add_book_sheft_style{
+	color:#0fc5c7;
+}
+
+
+.conter_ul_tit_h2{
+	background-image:url(/images/icons/h_border_3.gif);
+}
+
+
+
+.conter_list_tab_box a,
+.conter_list_tab_box,
+.ranking_head_tab_box .hover,
+.ranking_classify_list_tab_box,
+.ranking_classify_list_tab_box a span,
+.began_read,
+.add_book_sheft_style,
+.head_tab_but_box a{
+	border-color:#0fc5c7;
+}
+
+
+/*书架*/
+.book_shelft_edit_box .total_book_num,
+.book_shelft_edit_box .book_shelft_edit,
+.book_shelft_edit_box .book_shelft_over{
+	color:#0fc5c7 ;
+}
+.book_shelft_edit_box .book_shelft_edit,
+.book_shelft_edit_box .book_shelft_over{
+	border: 1px solid #0fc5c7;
+}
+
+.book_shelft_null_main .book_shelf_null_but{
+	color:#0fc5c7 ;
+	border: 1px solid #0fc5c7;
+}
+
+
+
+.conter_ul_tit .conter_ul_tit_more{
+	color: #0fc5c7;
+}
+.conter_list_more_but span{
+	color:#0fc5c7 ;
+}
+.book_abstract_but,
+.book_abstract_but_2{
+	color: #0fc5c7;
+}
+
+/*书籍详情*/
+.book_abstract_but{
+	background-image: url(/images/icons/down_man.png?456);
+}
+
+.book_abstract_but_2{
+	background-image: url(/images/icons/up_man.png?456);
+}
+
+/*箭头*/
+.conter_ul_tit_more{
+
+	background-image:url(/images/icons/next_man.png?456) ;
+
+	background-image:url(/images/icons/next_man.png?456);
+
+}
+.conter_list_more_but span{
+	background-image:url(/images/icons/next_man.png?456);
+}
+
+/*自动订阅*/
+.subscribe_edit_box a{
+	color: #0fc5c7;
+	border: 1px solid #0fc5c7;
+}
+
+
+
+
+
+
+

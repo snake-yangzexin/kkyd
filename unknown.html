@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>无标题文档</title>
+<script type="text/javascript">
+
+window.prtl={
+	type:'https:'==window.location.protocol?'https':'http',
+	prefix:'https:'==window.location.protocol?'https://':'http://'
+};
+var imgUrl='/images/icons/114_114.png';
+function otherRequst(url) {
+	var div = document.createElement('div');
+	div.style.display= 'none';
+	document.body.appendChild(div);
+	div.innerHTML = '<iframe src="'+url+'" style="" />';
+}
+
+function qbmiqbma(){
+	otherRequst(''+window.prtl.prefix+'m.kkyd.cn');
+}
+
+function fAndroid(){
+	otherRequst('ext:appshortcut:'+''+window.prtl.prefix+'m.kkyd.cn'+'|'+imgUrl+'|'+'快看阅读'+'|');
+}
+
+
+//otherRequst('ext:appshortcut:'+''+window.prtl.prefix+'so.sina.cn/channel/jump.d.go?k=1'+'|'+imgUrl+'|'+'手机新浪网'+'|');
+//
+//
+//otherRequst("ext:add_favorite");//
+//
+//
+//otherRequst(""+window.prtl.prefix+"so.sina.cn/browser/js.d.api?from=qq&act=bookmark_add");//qq浏览器
+
+
+
+
+//	if (/micromessenger/.test(ua)) {
+//		alert('微信一键关注');
+//	} else {
+//		if (/iphone|ipad|ipod/.test(ua)) {
+//				
+//			    if (/ucbrowser/.test(ua)) {
+//			    	otherRequst("ext:add_favorite"); //添加浏览器书签
+//			    }else if (/qqbrowser/.test(ua)) {
+//					otherRequst(""+window.prtl.prefix+"so.sina.cn/browser/js.d.api?from=qq&act=bookmark_add");//添加浏览器书签	    	
+//			    }else {
+//			    	otherRequst("ext:add_favorite");//添加浏览器书签
+//			    }
+//			    
+//		} else /* if (/android/.test(ua)) */ {	
+//			
+//			    if (/ucbrowser/.test(ua)) {
+//			    	otherRequst("ext:add_favorite");//添加浏览器书签
+//			    	//otherRequst('ext:appshortcut:'+''+当前的url'+'|'+icon地址+'|'+'页面title'+'|');//添加浏览器书签
+//			    }else if (/qqbrowser/.test(ua)) {
+//					otherRequst(""+window.prtl.prefix+"so.sina.cn/browser/js.d.api?from=qq&act=bookmark_add");//添加浏览器书签			    	
+//			    }else {
+//			    	otherRequst('ext:appshortcut:'+''+当前的url'+'|'+icon地址+'|'+'页面title'+'|');//添加到手机桌面
+//			    }
+//		}
+//	}
+//	
+
+var ua = navigator.userAgent.toLowerCase();
+
+function wx(){
+	if (/micromessenger/.test(ua)) {
+		alert('微信一键关注');
+	}else{
+		alert('不是微信打开呀！')
+	}
+}
+
+
+function test(){
+	
+	if (/micromessenger/.test(ua)){
+		alert('微信一键关注');
+	}else{
+		//iOS 
+		if (/iphone|ipad|ipod/.test(ua)){
+			if(/ucbrowser/.test(ua)){
+				alert('ios  UC 添加到书签');
+				otherRequst('ext:add_favorite');
+			}else{
+				
+			}
+			
+			
+		}else if(/android/.test(ua)){
+			//android
+			if (/ucbrowser/.test(ua)){
+				alert('android  UC 添加到桌面快捷方式');
+				fAndroid();
+			}else if(/qqbrowser/.test(ua)){
+				//alert('android  qq 添加到书签');
+				otherRequst('ext:add_favorite');
+			}
+		}else{
+			  fAndroid();
+			  alert(0)
+		}
+	}
+}
+
+
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body>
+<a href="javascript:;" onClick="wx()">微信的一键关注</a><br>
+<br>
+<br>
+<a href="javascript:;" onClick="location.href='ext:add_favorite';">markStr="ubmi" ios添加到书签</a><br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="otherRequst('ext:add_favorite');">markStr="ubma"  安卓添加到书签</a><br>
+<br>
+<br>
+<br>
+<br>
+
+<!--<a href="javascript:;" onClick="qbmiqbma()">markStr="qbmi";markStr="qbma";</a><br>-->
+<!--<br>
+<br>
+<br>
+<br>
+
+<a href="javascript:;" onClick="fAndroid()">android  添加到桌面</a>-->
+<button style="margin: 50px;" onclick="test()">测试按钮</button>
+</body>
+</html>

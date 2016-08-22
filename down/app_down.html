@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" type="text/css" href="/css/reset.css?v20160731" />
+<link href="/images/icons/logo.png" rel="apple-touch-icon" />
+<link href="/images/icons/logo.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="/favicon.ico" mce_href="/favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="/favicon.ico" mce_href="/favicon.ico" rel="icon" type="image/x-icon" />
+<link href="/favicon.ico" mce_href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<style type="text/css">
+ html,body{
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.box{
+	overflow: hidden;
+}
+.load_head{
+	height: 44px;
+	background: #232323;
+}
+.back{
+	width: 12px;
+	height: 22px;
+	overflow: hidden;
+	float: left;
+	margin: 10px 0 12px 12px;
+	box-sizing: border-box;
+}
+.back img{
+	display: block;
+	width: 100%;
+}
+.load_tit{
+	margin: 0 24px;
+	text-align: center;
+	font-size: 18px;
+	color: #fff;
+	line-height: 44px;
+}
+.bg_box{
+	position: absolute;
+	overflow: hidden;
+	top: 44px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background:url(/images/app_down/bg.jpg) no-repeat ;
+	background-size:cover ;
+}
+.content_box{
+	height: 220px;
+	margin: auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+.load_logo{
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.load_logo img{
+	width: 100%;
+	display: block;
+}
+.load_h3{
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	font-family: "microsoft yahei";
+	margin-top: 10px;
+}
+.load_btns{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.load_btn{
+	display: block;
+	width: 60%;
+	height: 52px;
+	box-sizing: border-box;
+	border: 1px solid #959595;
+	border-radius: 30px;
+	text-align: center;
+	color: #fff;
+	left: 20%;
+	position: relative;
+	line-height: 52px;
+	font-size: 24px;
+}
+a.active{
+	border: 1px solid #FFF;
+}
+.bottom_btn{
+	margin-top: 18px;
+}
+.load_tip{
+	display: block;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    margin-top:18px ;
+}	
+</style>
+<script type="text/javascript">
+$(function(){
+	$('.load_btn').click(function(){
+		var $oThis=$(this);
+		$oThis.addClass('active').siblings().removeClass('active');
+	})
+})
+</script>
+<title>下载</title>
+
+
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+<body>
+<div style="display:none;" id="share_icon"><img src="/images/icons/icon5.png" /></div>
+<div class="box">
+	<div class="load_head">
+		<div class="back" onClick="history.go(-1);"><img src="/images/app_down/sanjiao_1.png" /></div>
+		<h2 class="load_tit">下载</h2>
+	</div>
+	<div class="bg_box">
+		<div class="content_box">
+			<div class="load_logo"><img src="/images/app_down/logo.png"></div>
+			<h3 class="load_h3">快看酱</h3>
+			<div class="load_btns">
+				<a class="load_btn bottom_btn active" href="http://www.chaohuida.com/K102272.apk">Android下载</a>
+				<span class="load_tip">快看酱iOS版本敬请期待</span>
+			</div>
+		</div>
+	</div>
+</div>	
+</body>
+</html>

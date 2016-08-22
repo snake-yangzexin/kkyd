@@ -1,0 +1,237 @@
+<!doctype html>
+<html id="user_info_vue">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>个人中心</title>
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.lazyload.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript">
+
+var sFirstCharge=$.cookie('firstCharge');
+if(sFirstCharge&&sFirstCharge=='top_up'){
+	window.location.href='/top_up.html';
+}
+
+
+
+var oLoginChannelCode={
+	'K900027':true
+};
+var sLoginChannelCodeCookie=$.cookie('channelCode');
+
+if(oLoginChannelCode[sLoginChannelCodeCookie]){
+	//if(referrerUrl('subscribe_chapter',false)){
+	var sKkydIfo=$.cookie('KKYD_INFO');
+	
+	if(sKkydIfo){
+		$.get('/asg/portal/h5/login/get/'+sKkydIfo+'.do',function(data){
+			if(data.status!=1){
+				window.location.href='/login/login.html';
+				return false;
+			}
+			
+			//console.log(appVue.forJson);
+		})
+	}
+	
+	
+	
+	
+	if($.cookie('book_info')&&$.cookie('book_info')!='null'){
+		var sBookInfo=JSON.parse($.cookie('book_info'));
+		clearBookInfo('book_info');
+		window.location.href='/subscribe_chapter.html?bookId='+sBookInfo.bookId+'&reaction=3&chapterId='+sBookInfo.chapterId;
+		
+	}
+		
+	//}
+}
+
+</script>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="/css/reset.css?v20160731" rel="stylesheet" type="text/css">
+<link href="/css/common.css?v20160731" rel="stylesheet" type="text/css">
+<style type="text/css">
+	
+</style>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c0645c8b1c54674c9f696ea76bb353b6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body>
+<div class="loading_body" v-if="!show"><div class="loading_zhuan"><span>玩命加载中....</span></div></div>
+<div style="display:none;" id="share_icon"><img src="/images/icons/icon5.png" /></div>
+<template v-if="show">
+    <div class="header_tit">
+        <a href="javascript:;" class="return_page"></a>
+        <a href="/" class="return_home">首页</a>
+        <h1 class="header_h1">个人中心</h1>
+    </div>
+    
+    
+    <div class="user_header_box">
+        <div class="user_image"><img src="/images/img/book_bg.png" :data-original="forJson.avatar" /></div>
+        <!--<a href="/edit_name.html" class="user_edit_but">编辑</a>-->
+        <div class="user_info_text_box">
+            <h1>{{forJson.showName}}</h1>
+            <div class="user_info_text">ID:<em>{{forJson.uid}}</em></div>
+            <div class="user_info_text">余额:<span>{{forJson.amount}}</span>看点</div>
+        </div>
+    </div>
+    
+    <!--<div class="user_bind_phone_text">绑定手机号，可用于登录和找回密码，还可免费领20看点</div>-->
+    
+    
+    <div class="user_bind_box" v-if="!butShow && nullUser">
+    	游客存在追更、看点丢失等风险，<a href="/login/bind_login.html" class="user_bind_button" onClick="postTongji('&type=user_center_lijibinding_click')">立即绑定>></a>
+    </div>
+    
+    <div class="user_info_main">
+        <div class="user_info_list">
+            <ul class="user_info_ul">
+                <li>
+                    <a href="/top_up.html" onClick="postTongji('&type=user_center_chongzhi_click')">
+                        <span class="user_li_icon user_li_icon_1"></span>
+                        <strong>充值</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="/top_up_recode.html">
+                        <span class="user_li_icon user_li_icon_2"></span>
+                        <strong>充值记录</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        
+        <div class="user_info_list">
+            <ul class="user_info_ul">
+                <li>
+                    <a href="/book_shelf.html">
+                        <span class="user_li_icon user_li_icon_3"></span>
+                        <strong>我的书架</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="/book_recently_read.html">
+                        <span class="user_li_icon user_li_icon_8"></span>
+                        <strong>最近阅读<b v-if="sFirstBookName">&nbsp;&nbsp;{{sFirstBookName}}</b></strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="read_guide.html">
+                        <span class="user_li_icon user_li_icon_4"></span>
+                        <strong>阅读指南</strong>
+                    </a>
+                </li>
+                <li>
+                    <a href="edit/user_set.html">
+                        <span class="user_li_icon user_li_icon_5"></span>
+                        <strong>账户设置</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        
+       <div class="user_info_list" v-if="!butShow && nullUser" >
+            <ul class="user_info_ul">
+                 <!--<li>
+                    <a href="/login/login.html">
+                        <span class="user_li_icon user_li_icon_6"></span>
+                        <strong>切换账户</strong>
+                    </a>
+                </li>-->
+                <li>
+                    <a href="/login/bind_login.html" onClick="postTongji('&type=user_center_webbinding_click')" v-if="miUser">
+                        <span class="user_li_icon user_li_icon_7"></span>
+                        <strong>绑定账号</strong>
+                    </a>
+                    <a href="/asg/portal/h5/login/weixinInner.do?action=bind" onClick="postTongji('&type=user_center_weixinbinding_click')" v-else>
+                        <span class="user_li_icon user_li_icon_7"></span>
+                        <strong>绑定账号</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="user_esc_box">
+            <template v-if="!miUser">
+                <a href="/asg/portal/h5/login/weixinInner.do?action=bind" class="user_esc_but red" style="margin-bottom:10px;" v-if="!butShow && forJson.amount>0">绑定账号</a>
+                <a href="/login/login.html" class="user_esc_but red" style="margin-bottom:10px;" v-if="!butShow && forJson.amount <= 0">登录</a>
+            </template>
+            <template v-else>
+                <a href="/login/login.html" class="user_esc_but red" style="margin-bottom:10px;" v-if="!butShow">登录</a>
+                <a href="javascript:;" class="user_esc_but" id="login_user_id" v-if="butShow">退出登录</a>
+            </template>
+        </div>
+    </div>
+    
+    
+
+     
+
+
+<div class="footer_box">
+	<div class="footer_other_box">
+    	<a href="/login/login.html" class="footer_other_left">登录</a>
+    	<a href="book_shelf.html" class="footer_other_left">书架</a>
+    </div>
+    <div class="footer_info">
+        <div class="footer_list_box">
+        	<div class="index_ewm_right city_hide">
+					    <div class="index_ewm_show index_position_content"><img src="/images/img/kkewm.jpg?20160730"></div>
+					    <span>长按免费关注</span>
+            </div>
+        	<div class="footer_li">
+				     <strong>工作时间：每天9:30-18:30</strong> <strong>客服电话：<a href="tel:4001180066" class="tel_color">4001180066</a></strong>
+          </div>
+        	<div class="footer_li">
+				        客服QQ：1329139338 <strong>微信公众号：快看酱</strong> <strong>新浪微博：快看阅读</strong>
+          </div>
+        	<div class="footer_li">
+				      ©2014-2016<a href="/" class="tel_color"> m.kkyd.cn</a>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+    
+    
+    
+    
+    <a href="javascript:;" class="return_top_but">回顶部</a>
+</template>
+</body>
+</html>
+
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/user_content.js?v20160731"></script>

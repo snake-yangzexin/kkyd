@@ -1,0 +1,171 @@
+<!doctype html>
+<html id="book_main_vue">
+<head>
+<meta charset="utf-8">
+<title v-text="forJson.bookName"></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link href="css/reset.css?v20160731" rel="stylesheet" type="text/css">
+<link href="css/book.css?v20160731" rel="stylesheet" type="text/css">
+<style type="text/css">
+body{
+	margin:0 auto;
+	max-width:720px;
+}
+.book_header_tit{
+	background-color:#333 !important;
+}
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c0645c8b1c54674c9f696ea76bb353b6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<link href="/images/icons/57_57.png" rel="apple-touch-icon" sizes="57x57" />
+<link href="/images/icons/114_114.png" rel="apple-touch-icon" sizes="114x114" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="bookmark" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="icon" type="image/x-icon" />
+<link href="favicon.ico" mce_href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+<script type="text/javascript" src="/js/jq/jquery.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/jquery.cookie.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/classify_style.js?v20160731"></script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+
+<body style="display:none;" :style="{display:show?'block':'none'}">
+	<div style="display:none;" id="share_icon">
+    	<img src="/images/icons/icon5.png" width="300" height="300" v-if="!forJson.coverWap"/>
+        <img :src="forJson.coverWap" width="300" height="300" v-esle/>
+    </div>
+
+	<div class="content_page_box" style="padding: 10px;">
+        <div class="content_page_main">
+            <a href="javascript:;" class="page_but_prev" @click="pageChapter(forJson.preChapterId)">上一章</a>
+            <a href="javascript:;" class="page_but_next" @click="pageChapter(forJson.nextChapterId)">下一章</a>
+            <a :href="'book_list.html?bookId='+forJson.bookId+'&chapterId='+forJson.chapterId" class="page_directory">目录</a>
+        </div>
+    </div>
+	
+    <div class="header_tit book_header_tit">
+        <a href="javascript:;" class="return_page"></a>
+        <h1 class="header_tit_h1" v-text="forJson.chapterName"></h1>
+        <!--<a href="javascript:;" class="return_home share_icon"><span></span></a>-->
+        <a href="book_shelf.html" class="return_home bookcase_icon" v-if="forJson.isInBookShelf">书架</a>
+        <a href="javascript:;" class="return_home bookcase_icon" id="add_shelf_but" v-if="!forJson.isInBookShelf" @click="addShelf(forJson.bookId)" style="width:auto;">加入书架</a>
+        <a href="/" class="return_home home_icon">首页</a>
+    </div>
+    
+    <h1 class="text_content_h1" v-text="forJson.chapterName"></h1>
+    
+    <div class="text_content_box" v-html="forJson.content"></div>
+    
+    <div class="content_page_box">
+        <div class="content_page_main">
+            <a href="javascript:;" class="page_but_prev" @click="pageChapter(forJson.preChapterId)">上一章</a>
+            <a href="javascript:;" class="page_but_next" @click="pageChapter(forJson.nextChapterId)">下一章</a>
+            <a :href="'book_list.html?bookId='+forJson.bookId+'&chapterId='+forJson.chapterId" class="page_directory">目录</a>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div class="text_content_ewm">
+    	<div class="content_ewm_box">
+        	<div class="content_ewm_img"><img src="images/img/kkewm.jpg" /></div>
+        	<div class="content_ewm_text">
+            	<strong>【关注领福利】</strong>
+                <p>长按识别图中二维码，关注“快看”官方微信，免费追更、免费领取看点！</p>
+            </div>
+        </div>
+        <div class="content_ewm_other">扫描太麻烦，不如打开微信搜索：<strong>"快看酱"</strong> </div>
+    </div>
+    
+    <div class="xqm">
+    	<strong>小窍门</strong>
+        <p>下载app客户端，海量图书、免费领看点、批量下载、离线缓存、图书限时免费等特权，等你来玩哟！</p>
+        <a href="http://www.chaohuida.com/K102272.apk">下载客户端，玩转阅读 >></a>
+    </div>
+    <div class="page_but_box">
+        <div class="page_bu_top" @click="butPageChapter(forJson.preChapterId,'prev')"><span>点击向上翻页区</span></div>
+        <div class="page_bu_conter"><span>点击功能呼出区</span></div>
+        <div class="page_bu_bottom" @click="butPageChapter(forJson.nextChapterId,'next')"><span>点击向下翻页区</span></div>
+    </div>
+    <div class="text_con_footer">
+        <div class="text_con_font_edit">
+            <div class="font_size_box">
+                <a href="javascript:;" class="font_subtract">Aa-</a>
+                <a href="javascript:;" class="font_puls">Aa+</a>
+            </div>
+            <div class="bg_color_box">
+                <a href="javascript:;" bg_color="book_bg_1" class="bg_eyeshield">护眼</a>
+                <a href="javascript:;" bg_color="book_bg_2" class="bg_parchment">羊皮纸</a>
+                <a href="javascript:;" bg_color="book_bg_3" class="bg_pink">贵妃粉</a>
+                <a href="javascript:;" bg_color="book_bg_4" class="bg_paper">纸之灵</a>
+            </div>
+            <div class="book_other_but_box">
+                <a href="javascript:;" class="book_prev_chapter" @click="pageChapter(forJson.preChapterId)">
+                    <span></span>
+                    <strong>上一章</strong>
+                </a>
+                <a :href="'book_list.html?bookId='+forJson.bookId+'&chapterId='+forJson.chapterId" class="book_directory">
+                    <span></span>
+                    <strong>目录</strong>
+                </a>
+                <a href="javascript:;" class="book_setting">
+                    <span></span>
+                    <strong>设置</strong>
+                </a>
+                <a href="javascript:;" class="book_night">
+                    <span></span>
+                    <strong>夜间</strong>
+                    <em></em>
+                    <b>日间</b>
+                </a>
+                <a href="javascript:;" class="book_prev_next" @click="pageChapter(forJson.nextChapterId)">
+                    <span></span>
+                    <strong>下一章</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="text_but_error"></div>
+</body>
+</html>
+<script type="text/javascript" src="/js/vue/vue.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/jq/touch-0.2.14.min.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/common.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/book.js?v20160731"></script>
+<script type="text/javascript" src="/js/javascript/book_local_storage.js?v20160731"></script>
+
+
+
+<script type="text/javascript">
+	if(!$.cookie("contentJson")){
+		fSetCookie("contentJson",oJson,'30');
+		$('.page_but_box').addClass('page_but_show');
+	}else{
+		var sJson=fGetCookie("contentJson");
+		//console.log(sJson);
+		//$('.text_content_box').css('font-size',sJson.fontSize);
+		$('.text_content_box').attr('class','text_content_box count_font_'+ parseInt(sJson.fontSize));
+		$('body').attr('class',sJson.bookBg.aAookBg[sJson.bookBg.selectVal]);
+		$('.bg_color_box a:eq('+ sJson.bookBg.selectVal +')').addClass('select_bg');
+		if(sJson.bookNight){
+			$('body').addClass('book_bg_night');
+		}
+		if(sJson.pageShow){
+			$('.page_but_box').removeClass('page_but_show');
+			$('.page_but_box div').html('');
+		}else{
+			$('.page_but_box').addClass('page_but_show');
+		}
+	}
+</script>

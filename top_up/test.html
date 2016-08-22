@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src="../js/jq/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var url="/asg/portal/h5/index.html?type=index";
+	///asg/portal/h5/index.do?type=index
+		
+		$.ajax({
+			   type: "GET",
+			   url: url,
+			   dataType : 'json',
+			   success: function(data){
+			   //	var $data = JSON.parse(data);
+			    	console.log(data);
+			    	alert(typeof data)
+			   }
+		})
+	})
+</script><script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="http://123.57.241.207/ip.php"></script>
+</head>
+<body>
+</body>
+</html>
